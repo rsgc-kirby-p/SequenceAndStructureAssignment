@@ -20,42 +20,58 @@ import PlaygroundSupport
 let canvas = Canvas(width: 500, height: 500)
 
 // make the boarder
-canvas.fillColor = Color(hue: 300, saturation: 100, brightness: 100, alpha: 100)
-canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 450, width: 500, height: 75)
-canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 0, width: 200, height: 500)
-canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 50)
-canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 50, height: 500)
+//canvas.fillColor = Color(hue: 300, saturation: 100, brightness: 100, alpha: 100)
+//canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 450, width: 500, height: 75)
+//canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 0, width: 200, height: 500)
+//canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 500, height: 50)
+//canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 50, height: 500)
+//
+//canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 50, height: 50)
+//canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 450, width: 50, height: 50)
+//canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 0, width: 50, height: 50)
+//canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 450, width: 50, height: 50)
 
-canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 0, width: 50, height: 50)
-canvas.drawRectangle(bottomLeftX: 0, bottomLeftY: 450, width: 50, height: 50)
-canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 0, width: 50, height: 50)
-canvas.drawRectangle(bottomLeftX: 450, bottomLeftY: 450, width: 50, height: 50)
+
+
 
 
 
 
 canvas.drawShapesWithFill = true
 canvas.defaultBorderWidth = 5
+canvas.drawShapesWithBorders = false
+
 
 // This loop makes a 10 rows of columns
-for x in stride(from: 75, through: 425, by: 55){
+for x in stride(from: 25, through: 500, by: 50){
     // This loop makes a single column, bottom to top
-    for y in stride(from: 75, through: 425, by: 55) {
+    for y in stride(from: 25, through: 500, by: 50) {
         
         // Get some entropy (a random number, 0 through 25, but never 26)
-        let expansion = random(from: 25, toButNotIncluding: 38)
+        let expansion = random(from: 0, toButNotIncluding: 25)
         
-        // Set the diameter of the circle
-        let diameter = 25 + expansion
+        // Set the diameter of the circle | makes the change more noticable
+        let diameter = 50 - expansion
         
         // Draw the circle
-        canvas.borderColor = Color.blue
-        canvas.fillColor = Color(hue: 120, saturation: 100, brightness: 100, alpha: 100)
-        canvas.drawEllipse(centreX: x, centreY: y, width: diameter, height: diameter)
+//        canvas.borderColor = Color.blue
+//        if (diameter > 40){
+//            canvas.fillColor = Color(hue: 180, saturation: 100, brightness: 100, alpha: 100)
+//        }else if(diameter < 20){
+//            canvas.fillColor = Color(hue: 301, saturation: 100, brightness: 100, alpha: 100)
+//        }else if(diameter < 40){
+//            canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 47, alpha: 100)
         
+    
+    
+    
+        canvas.fillColor = Color(hue: x * expansion, saturation: 100, brightness: 100, alpha: 100)
+        canvas.drawEllipse(centreX: x, centreY: y, width: diameter, height: diameter)
         
     }
 }
+
+
 
 
 /*:
