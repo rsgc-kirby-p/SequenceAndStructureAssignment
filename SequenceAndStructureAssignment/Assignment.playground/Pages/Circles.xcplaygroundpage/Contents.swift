@@ -33,7 +33,7 @@ let canvas = Canvas(width: 500, height: 500)
 
 
 
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 
 
 
@@ -48,31 +48,35 @@ for x in stride(from: 25, through: 500, by: 50){
     for y in stride(from: 25, through: 500, by: 50) {
         
         // Get some entropy (a random number, 0 through 25, but never 26)
-        let expansion = random(from: 0, toButNotIncluding: 25)
+        let expansion = random(from: 5, toButNotIncluding: 45)
         
         // Set the diameter of the circle | makes the change more noticable
         let diameter = 50 - expansion
         
-        // Draw the circle
-//        canvas.borderColor = Color.blue
-//        if (diameter > 40){
-//            canvas.fillColor = Color(hue: 180, saturation: 100, brightness: 100, alpha: 100)
-//        }else if(diameter < 20){
-//            canvas.fillColor = Color(hue: 301, saturation: 100, brightness: 100, alpha: 100)
-//        }else if(diameter < 40){
-//            canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 47, alpha: 100)
+        //Draw the circles
+        canvas.borderColor = Color.blue
+        if (diameter > 40){
+            canvas.fillColor = Color(hue: 180, saturation: 100, brightness: 100, alpha: 100)
+        }else if(diameter < 20){
+            canvas.fillColor = Color(hue: 301, saturation: 100, brightness: 100, alpha: 100)
+        }else if(diameter < 40){
+            canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 47, alpha: 100)
+        }else if(diameter < 40){
+            canvas.fillColor = Color(hue: 0, saturation: 100, brightness: 47, alpha: 100)
         
     
-    
-    
-        canvas.fillColor = Color(hue: x * expansion, saturation: 100, brightness: 100, alpha: 100)
+
+
+//        canvas.fillColor = Color(hue: x * expansion, saturation: 100, brightness: 100, alpha: 100)
         canvas.drawEllipse(centreX: x, centreY: y, width: diameter, height: diameter)
+        
+
         
     }
 }
 
 
-
+//canvas.copyToClipboard()
 
 /*:
  ## Template code
